@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jannat Studio offers always-on WhatsApp support, digital assistance, and fast creative service for customers who need help any time."
+    />
+    <title>Jannat Studio | 24 Hour WhatsApp Service</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111318;
+        --muted: #5d6472;
+        --paper: #fffdf7;
+        --soft: #f7f0e7;
+        --line: rgba(17, 19, 24, 0.12);
+        --gold: #ffd84d;
+        --red: #f43d2f;
+        --green: #13b653;
+        --violet: #7c58d9;
+        --shadow: 0 22px 70px rgba(24, 19, 10, 0.18);
+        font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      header {
+        position: fixed;
+        width: min(1180px, calc(100% - 32px));
+        top: 16px;
+        left: 50%;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+        background: rgba(255, 253, 247, 0.86);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        box-shadow: 0 16px 50px rgba(17, 19, 24, 0.12);
+        backdrop-filter: blur(16px);
+        transform: translateX(-50%);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 2.1rem;
+        height: 2.1rem;
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--gold);
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .nav-links a {
+        color: #343842;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--red);
+      }
+
+      .nav-cta,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        min-height: 2.75rem;
+        border-radius: 8px;
+        border: 0;
+        text-decoration: none;
+        font-weight: 850;
+        line-height: 1;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .nav-cta {
+        padding: 0 1rem;
+        background: var(--green);
+        color: white;
+        box-shadow: 0 12px 28px rgba(19, 182, 83, 0.24);
+      }
+
+      .button {
+        padding: 0 1.2rem;
+      }
+
+      .nav-cta:hover,
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button.primary {
+        background: var(--red);
+        color: white;
+        box-shadow: 0 16px 34px rgba(244, 61, 47, 0.24);
+      }
+
+      .button.secondary {
+        background: white;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: grid;
+        align-items: center;
+        padding: 7rem 1rem 2rem;
+        isolation: isolate;
+        background:
+          radial-gradient(circle at 78% 20%, rgba(255, 216, 77, 0.22), transparent 28rem),
+          linear-gradient(135deg, #171114 0%, #251a43 48%, #111318 100%);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 11rem;
+        background: linear-gradient(0deg, var(--paper), rgba(255, 253, 247, 0));
+        z-index: -1;
+      }
+
+      .hero-content {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        width: fit-content;
+        margin: 0;
+        padding: 0.45rem 0.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: var(--green);
+        box-shadow: 0 0 0 6px rgba(19, 182, 83, 0.18);
+      }
+
+      .hero-copy {
+        display: grid;
+        gap: 1.15rem;
+        max-width: 690px;
+        color: white;
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+        font-size: clamp(3.4rem, 9vw, 7.2rem);
+        line-height: 0.86;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero-copy p {
+        margin: 0;
+        max-width: 42rem;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.75;
+        font-size: clamp(1rem, 2vw, 1.18rem);
+      }
+
+      .hero-actions,
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        align-items: center;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        width: min(760px, 100%);
+        margin-top: 1rem;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .hero-poster {
+        justify-self: end;
+        width: min(440px, 100%);
+      }
+
+      .hero-poster a {
+        display: block;
+        border-radius: 8px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .hero-poster a:hover {
+        transform: translateY(-3px);
+      }
+
+      .hero-poster img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .stat {
+        min-height: 6rem;
+        padding: 1rem;
+        background: rgba(17, 19, 24, 0.62);
+        color: white;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.75rem;
+        line-height: 1;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 0.45rem;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.88rem;
+        line-height: 1.4;
+      }
+
+      section {
+        padding: 5rem 1rem;
+      }
+
+      .wrap {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-title {
+        display: grid;
+        gap: 0.9rem;
+        max-width: 680px;
+        margin-bottom: 2rem;
+      }
+
+      .section-title.center {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1;
+        margin: 0;
+        letter-spacing: 0;
+      }
+
+      .section-title p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+        font-size: 1rem;
+      }
+
+      .services-grid,
+      .process-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .service-card,
+      .process-card,
+      .contact-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 18px 50px rgba(17, 19, 24, 0.06);
+      }
+
+      .service-card {
+        min-height: 18rem;
+        display: grid;
+        align-content: space-between;
+        gap: 1.5rem;
+        padding: 1.3rem;
+      }
+
+      .icon-box {
+        display: grid;
+        place-items: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 8px;
+        background: var(--soft);
+        color: var(--red);
+        font-size: 1.35rem;
+        font-weight: 900;
+      }
+
+      .service-card h3,
+      .process-card h3,
+      .contact-panel h3 {
+        margin: 0 0 0.65rem;
+        font-size: 1.25rem;
+      }
+
+      .service-card p,
+      .process-card p,
+      .contact-panel p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .highlight {
+        background: var(--ink);
+        color: white;
+      }
+
+      .highlight .section-title p,
+      .highlight .process-card p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .process-card {
+        padding: 1.3rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .step-number {
+        display: inline-grid;
+        place-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        background: var(--gold);
+        color: var(--ink);
+        font-weight: 900;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .image-frame {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        background: var(--violet);
+        aspect-ratio: 4 / 5;
+      }
+
+      .image-frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .detail-list {
+        display: grid;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .detail-list li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.8rem;
+        align-items: start;
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: white;
+      }
+
+      .check {
+        display: grid;
+        place-items: center;
+        width: 1.65rem;
+        height: 1.65rem;
+        border-radius: 999px;
+        background: rgba(19, 182, 83, 0.12);
+        color: var(--green);
+        font-weight: 900;
+      }
+
+      .detail-list strong {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .detail-list span {
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .contact {
+        background: linear-gradient(180deg, var(--soft), var(--paper));
+      }
+
+      .contact-panel {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        padding: clamp(1.25rem, 3vw, 2rem);
+      }
+
+      .contact-methods {
+        display: grid;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        color: var(--muted);
+      }
+
+      .contact-methods a {
+        width: fit-content;
+        text-decoration: none;
+        font-weight: 800;
+        color: var(--ink);
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        header {
+          width: calc(100% - 24px);
+          top: 12px;
+        }
+
+        .nav-links a:not(.nav-cta) {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-content,
+        .hero-stats,
+        .services-grid,
+        .process-grid,
+        .split,
+        .contact-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          max-width: none;
+        }
+
+        .hero-poster {
+          justify-self: center;
+          order: -1;
+          width: min(420px, 100%);
+        }
+
+        .contact-panel {
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        header {
+          padding: 0.65rem;
+        }
+
+        .brand {
+          font-size: 0.78rem;
+          gap: 0.5rem;
+        }
+
+        .brand-mark {
+          width: 1.9rem;
+          height: 1.9rem;
+        }
+
+        .nav-cta {
+          min-height: 2.4rem;
+          padding: 0 0.8rem;
+          font-size: 0.85rem;
+        }
+
+        .hero {
+          padding-top: 6rem;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(3rem, 18vw, 4.6rem);
+        }
+
+        .hero-poster {
+          width: min(100%, 360px);
+        }
+
+        .hero-poster img {
+          width: auto;
+          max-width: 100%;
+          max-height: calc(100svh - 7.5rem);
+          margin: 0 auto;
+          object-fit: contain;
+        }
+
+        .hero-actions,
+        .contact-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 4rem 1rem;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="#home" aria-label="Jannat Studio home">
+        <span class="brand-mark">J</span>
+        <span>Jannat Studio</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://wa.link/lion12">WhatsApp</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-label="Jannat Studio 24 hour service">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot"></span>24 hour service every day</p>
+            <h1>Jannat</h1>
+            <p>
+              Fast WhatsApp support and polished digital service for people who need a reliable team ready to respond,
+              guide, and get things moving without delay.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="https://wa.link/lion12">Chat on WhatsApp</a>
+              <a class="button secondary" href="tel:+1234567890">Call now</a>
+            </div>
+          </div>
+
+          <div class="hero-poster">
+            <a href="https://wa.link/lion12" aria-label="Open Jannat Studio WhatsApp chat">
+              <img src="jannat.png" alt="Jannat 24 hour WhatsApp service poster" />
+            </a>
+          </div>
+
+          <div class="hero-stats" aria-label="Service highlights">
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Always available for quick customer support.</span>
+            </div>
+            <div class="stat">
+              <strong>Fast</strong>
+              <span>Clear responses that help customers move forward.</span>
+            </div>
+            <div class="stat">
+              <strong>Direct</strong>
+              <span>WhatsApp-first contact with simple next steps.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="wrap">
+          <div class="section-title center">
+            <h2>Ready When Customers Need You</h2>
+            <p>
+              Jannat Studio brings your service, support, and customer communication into one clean online presence.
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card">
+              <div>
+                <div class="icon-box">01</div>
+              </div>
+              <div>
+                <h3>WhatsApp Support</h3>
+                <p>Make it easy for visitors to start a direct conversation, ask questions, and get quick help.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div>
+                <div class="icon-box">02</div>
+              </div>
+              <div>
+                <h3>Customer Guidance</h3>
+                <p>Present your offer clearly so people understand what you do and how to reach you.</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <div>
+                <div class="icon-box">03</div>
+              </div>
+              <div>
+                <h3>Digital Presence</h3>
+                <p>A polished landing page that works across phones, tablets, and desktops with focused calls to action.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlight" id="process">
+        <div class="wrap">
+          <div class="section-title">
+            <h2>Simple Service Flow</h2>
+            <p>Visitors do not need to search around. The page guides them from interest to action in a few seconds.</p>
+          </div>
+          <div class="process-grid">
+            <article class="process-card">
+              <span class="step-number">1</span>
+              <h3>Open the page</h3>
+              <p>Your brand, service promise, and availability are visible immediately.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-number">2</span>
+              <h3>Choose contact</h3>
+              <p>Customers can tap WhatsApp or call without hunting for details.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-number">3</span>
+              <h3>Start support</h3>
+              <p>The conversation begins quickly with a clear path for the next step.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="studio">
+        <div class="wrap split">
+          <div class="image-frame">
+            <img src="jannat.png" alt="Jannat 24 hour WhatsApp service poster" />
+          </div>
+          <div>
+            <div class="section-title">
+              <h2>Built Around Trust, Speed, and Clarity</h2>
+              <p>
+                The design keeps Jannat's bold visual identity while making the page easier to read, easier to contact,
+                and more convincing for mobile visitors.
+              </p>
+            </div>
+            <ul class="detail-list">
+              <li>
+                <span class="check">&#10003;</span>
+                <span><strong>Mobile-first layout</strong>Buttons, text, and sections stay readable on small screens.</span>
+              </li>
+              <li>
+                <span class="check">&#10003;</span>
+                <span><strong>Clear contact options</strong>WhatsApp, phone, and email are visible where customers expect them.</span>
+              </li>
+              <li>
+                <span class="check">&#10003;</span>
+                <span><strong>Strong brand moment</strong>The original Jannat artwork becomes the main visual signal on the page.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <div class="contact-panel">
+            <div>
+              <h3>Give Us One Chance</h3>
+              <p>
+                Send a message any time. Jannat Studio is positioned for fast replies, clear help, and simple customer
+                communication.
+              </p>
+              <div class="contact-methods">
+                <a href="mailto:hello@jannatstudio.com">hello@jannatstudio.com</a>
+                <a href="tel:+1234567890">+123 456 7890</a>
+                <span>Online service, available every day</span>
+              </div>
+            </div>
+            <div class="contact-actions">
+              <a class="button primary" href="https://wa.link/lion12">WhatsApp</a>
+              <a class="button secondary" href="mailto:hello@jannatstudio.com">Email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Jannat Studio</span>
+      <span>24 hour WhatsApp service every day.</span>
+    </footer>
+  </body>
+</html>
