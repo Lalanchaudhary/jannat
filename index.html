@@ -100,6 +100,7 @@
       }
 
       .nav-cta,
+      .poster-trigger,
       .button {
         display: inline-flex;
         align-items: center;
@@ -109,16 +110,28 @@
         border-radius: 8px;
         border: 0;
         text-decoration: none;
+        font: inherit;
         font-weight: 850;
         line-height: 1;
+        cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       }
 
-      .nav-cta {
+      .nav-cta,
+      .poster-trigger {
         padding: 0 1rem;
+      }
+
+      .nav-cta {
         background: var(--green);
         color: white;
         box-shadow: 0 12px 28px rgba(19, 182, 83, 0.24);
+      }
+
+      .poster-trigger {
+        background: white;
+        color: var(--ink);
+        border: 1px solid var(--line);
       }
 
       .button {
@@ -126,6 +139,7 @@
       }
 
       .nav-cta:hover,
+      .poster-trigger:hover,
       .button:hover {
         transform: translateY(-2px);
       }
@@ -144,87 +158,9 @@
 
       main {
         overflow: hidden;
+        padding-top: 6rem;
       }
 
-      .hero {
-        position: relative;
-        min-height: 100svh;
-        display: grid;
-        align-items: center;
-        padding: 7rem 1rem 2rem;
-        isolation: isolate;
-        background:
-          radial-gradient(circle at 78% 20%, rgba(255, 216, 77, 0.22), transparent 28rem),
-          linear-gradient(135deg, #171114 0%, #251a43 48%, #111318 100%);
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto 0 0;
-        height: 11rem;
-        background: linear-gradient(0deg, var(--paper), rgba(255, 253, 247, 0));
-        z-index: -1;
-      }
-
-      .hero-content {
-        width: min(1180px, 100%);
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        align-items: center;
-        gap: 2rem;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        width: fit-content;
-        margin: 0;
-        padding: 0.45rem 0.65rem;
-        border: 1px solid rgba(255, 255, 255, 0.24);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.12);
-        color: white;
-        font-size: 0.8rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .status-dot {
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 999px;
-        background: var(--green);
-        box-shadow: 0 0 0 6px rgba(19, 182, 83, 0.18);
-      }
-
-      .hero-copy {
-        display: grid;
-        gap: 1.15rem;
-        max-width: 690px;
-        color: white;
-      }
-
-      .hero-copy h1 {
-        margin: 0;
-        font-size: clamp(3.4rem, 9vw, 7.2rem);
-        line-height: 0.86;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      .hero-copy p {
-        margin: 0;
-        max-width: 42rem;
-        color: rgba(255, 255, 255, 0.82);
-        line-height: 1.75;
-        font-size: clamp(1rem, 2vw, 1.18rem);
-      }
-
-      .hero-actions,
       .contact-actions {
         display: flex;
         flex-wrap: wrap;
@@ -232,66 +168,68 @@
         align-items: center;
       }
 
-      .hero-stats {
-        display: grid;
-        grid-column: 1 / -1;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1px;
-        width: min(760px, 100%);
-        margin-top: 1rem;
-        overflow: hidden;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(255, 255, 255, 0.18);
-      }
-
-      .hero-poster {
-        justify-self: end;
-        width: min(440px, 100%);
-      }
-
-      .hero-poster a {
-        display: block;
-        border-radius: 8px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .hero-poster a:hover {
-        transform: translateY(-3px);
-      }
-
-      .hero-poster img {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .stat {
-        min-height: 6rem;
-        padding: 1rem;
-        background: rgba(17, 19, 24, 0.62);
-        color: white;
-      }
-
-      .stat strong {
-        display: block;
-        font-size: 1.75rem;
-        line-height: 1;
-      }
-
-      .stat span {
-        display: block;
-        margin-top: 0.45rem;
-        color: rgba(255, 255, 255, 0.76);
-        font-size: 0.88rem;
-        line-height: 1.4;
+      .poster-action {
+        margin-top: 1.25rem;
       }
 
       section {
         padding: 5rem 1rem;
+      }
+
+      .popup {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        background: rgba(17, 19, 24, 0.72);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.22s ease;
+      }
+
+      .popup.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .popup-dialog {
+        position: relative;
+        width: min(92vw, 430px);
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .popup-close {
+        position: absolute;
+        top: -0.8rem;
+        right: -0.8rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 0;
+        border-radius: 999px;
+        background: white;
+        color: var(--ink);
+        font-size: 1.45rem;
+        font-weight: 800;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+      }
+
+      .popup img {
+        width: 100%;
+        max-height: calc(100svh - 8rem);
+        display: block;
+        object-fit: contain;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+      }
+
+      .popup .button {
+        width: 100%;
       }
 
       .wrap {
@@ -404,29 +342,6 @@
         font-weight: 900;
       }
 
-      .split {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .image-frame {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        background: var(--violet);
-        aspect-ratio: 4 / 5;
-      }
-
-      .image-frame img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-      }
-
       .detail-list {
         display: grid;
         gap: 1rem;
@@ -514,27 +429,10 @@
           display: none;
         }
 
-        .hero {
-          min-height: auto;
-        }
-
-        .hero-content,
-        .hero-stats,
         .services-grid,
         .process-grid,
-        .split,
         .contact-panel {
           grid-template-columns: 1fr;
-        }
-
-        .hero-copy {
-          max-width: none;
-        }
-
-        .hero-poster {
-          justify-self: center;
-          order: -1;
-          width: min(420px, 100%);
         }
 
         .contact-panel {
@@ -563,27 +461,6 @@
           font-size: 0.85rem;
         }
 
-        .hero {
-          padding-top: 6rem;
-        }
-
-        .hero-copy h1 {
-          font-size: clamp(3rem, 18vw, 4.6rem);
-        }
-
-        .hero-poster {
-          width: min(100%, 360px);
-        }
-
-        .hero-poster img {
-          width: auto;
-          max-width: 100%;
-          max-height: calc(100svh - 7.5rem);
-          margin: 0 auto;
-          object-fit: contain;
-        }
-
-        .hero-actions,
         .contact-actions {
           align-items: stretch;
           flex-direction: column;
@@ -593,8 +470,8 @@
           width: 100%;
         }
 
-        .hero-stats {
-          grid-template-columns: 1fr;
+        .poster-trigger {
+          display: none;
         }
 
         section {
@@ -626,49 +503,20 @@
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
+        <button class="poster-trigger" type="button" data-open-popup>Poster</button>
         <a class="nav-cta" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">WhatsApp</a>
       </nav>
     </header>
 
+    <!-- <div class="popup is-open" id="posterPopup" role="dialog" aria-modal="true" aria-label="Jannat Studio poster">
+      <div class="popup-dialog">
+        <button class="popup-close" type="button" aria-label="Close poster">&times;</button>
+        <img src="jannat.png" alt="Jannat 24 hour WhatsApp service poster" />
+        <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">Chat on WhatsApp</a>
+      </div>
+    </div> -->
+
     <main id="home">
-      <section class="hero" aria-label="Jannat Studio 24 hour service">
-        <div class="hero-content">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="status-dot"></span>24 hour service every day</p>
-            <h1>Jannat</h1>
-            <p>
-              Fast WhatsApp support and polished digital service for people who need a reliable team ready to respond,
-              guide, and get things moving without delay.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">Chat on WhatsApp</a>
-              <a class="button secondary" href="tel:+1234567890">Call now</a>
-            </div>
-          </div>
-
-          <div class="hero-poster">
-            <a href="https://wa.me/918252607706?text=I%20want%20to%20know%20more.." aria-label="Open Jannat Studio WhatsApp chat">
-              <img src="jannat.png" alt="Jannat 24 hour WhatsApp service poster" />
-            </a>
-          </div>
-
-          <div class="hero-stats" aria-label="Service highlights">
-            <div class="stat">
-              <strong>24/7</strong>
-              <span>Always available for quick customer support.</span>
-            </div>
-            <div class="stat">
-              <strong>Fast</strong>
-              <span>Clear responses that help customers move forward.</span>
-            </div>
-            <div class="stat">
-              <strong>Direct</strong>
-              <span>WhatsApp-first contact with simple next steps.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="services">
         <div class="wrap">
           <div class="section-title center">
@@ -702,7 +550,7 @@
               </div>
               <div>
                 <h3>Digital Presence</h3>
-                <p>A polished landing page that works across phones, tablets, and desktops with focused calls to action.</p>
+                <p>A polished service page that works across phones, tablets, and desktops with focused calls to action.</p>
               </div>
             </article>
           </div>
@@ -736,10 +584,7 @@
       </section>
 
       <section id="studio">
-        <div class="wrap split">
-          <div class="image-frame">
-            <img src="jannat.png" alt="Jannat 24 hour WhatsApp service poster" />
-          </div>
+        <div class="wrap">
           <div>
             <div class="section-title">
               <h2>Built Around Trust, Speed, and Clarity</h2>
@@ -762,6 +607,9 @@
                 <span><strong>Strong brand moment</strong>The original Jannat artwork becomes the main visual signal on the page.</span>
               </li>
             </ul>
+            <div class="contact-actions poster-action">
+              <button class="button primary" type="button" data-open-popup>View poster</button>
+            </div>
           </div>
         </div>
       </section>
@@ -794,5 +642,31 @@
       <span>&copy; 2026 Jannat Studio</span>
       <span>24 hour WhatsApp service every day.</span>
     </footer>
+    <script>
+      const popup = document.getElementById("posterPopup");
+      const openButtons = document.querySelectorAll("[data-open-popup]");
+      const closeButton = popup.querySelector(".popup-close");
+
+      function openPopup() {
+        popup.classList.add("is-open");
+      }
+
+      function closePopup() {
+        popup.classList.remove("is-open");
+      }
+
+      openButtons.forEach((button) => button.addEventListener("click", openPopup));
+      closeButton.addEventListener("click", closePopup);
+      popup.addEventListener("click", (event) => {
+        if (event.target === popup) {
+          closePopup();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closePopup();
+        }
+      });
+    </script>
   </body>
 </html>
