@@ -5,22 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Jannat Studio offers always-on WhatsApp support, digital assistance, and fast creative service for customers who need help any time."
+      content="Jannat Studio provides 24 hour WhatsApp support, fast digital assistance, customer guidance, and professional online service communication."
     />
-    <title>Jannat Studio | 24 Hour WhatsApp Service</title>
+    <title>Jannat Studio | 24 Hour WhatsApp Support</title>
     <style>
       :root {
         color-scheme: light;
-        --ink: #111318;
-        --muted: #5d6472;
-        --paper: #fffdf7;
-        --soft: #f7f0e7;
-        --line: rgba(17, 19, 24, 0.12);
-        --gold: #ffd84d;
-        --red: #f43d2f;
+        --ink: #151821;
+        --muted: #626b7a;
+        --paper: #fbfaf6;
+        --white: #ffffff;
+        --mist: #eef3f7;
+        --line: rgba(21, 24, 33, 0.12);
+        --navy: #102840;
+        --teal: #0f766e;
         --green: #13b653;
-        --violet: #7c58d9;
-        --shadow: 0 22px 70px rgba(24, 19, 10, 0.18);
+        --red: #f43d2f;
+        --gold: #f2c94c;
+        --blue: #2f62d0;
+        --shadow: 0 20px 60px rgba(16, 40, 64, 0.14);
+        --radius: 8px;
         font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background: var(--paper);
         color: var(--ink);
@@ -34,6 +38,13 @@
       body {
         margin: 0;
         min-height: 100vh;
+        background:
+          linear-gradient(180deg, rgba(238, 243, 247, 0.7), rgba(251, 250, 246, 0) 30rem),
+          var(--paper);
+      }
+
+      img {
+        max-width: 100%;
       }
 
       a {
@@ -42,138 +53,450 @@
 
       header {
         position: fixed;
-        width: min(1180px, calc(100% - 32px));
-        top: 16px;
+        top: 14px;
         left: 50%;
-        z-index: 10;
+        z-index: 20;
+        width: min(1180px, calc(100% - 28px));
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         gap: 1rem;
-        padding: 0.8rem 1rem;
-        background: rgba(255, 253, 247, 0.86);
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        border-radius: 8px;
-        box-shadow: 0 16px 50px rgba(17, 19, 24, 0.12);
-        backdrop-filter: blur(16px);
+        padding: 0.75rem 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 14px 48px rgba(16, 40, 64, 0.14);
+        backdrop-filter: blur(18px);
         transform: translateX(-50%);
       }
 
       .brand {
         display: inline-flex;
         align-items: center;
-        gap: 0.65rem;
+        gap: 0.7rem;
+        text-decoration: none;
         font-size: 0.95rem;
-        letter-spacing: 0.11em;
+        font-weight: 900;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        font-weight: 800;
+        white-space: nowrap;
       }
 
       .brand-mark {
         display: grid;
         place-items: center;
-        width: 2.1rem;
-        height: 2.1rem;
-        border-radius: 8px;
-        background: var(--ink);
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: var(--radius);
+        background: var(--navy);
         color: var(--gold);
-        font-weight: 900;
         letter-spacing: 0;
       }
 
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 1.2rem;
+        gap: 1rem;
         font-size: 0.92rem;
-        font-weight: 700;
+        font-weight: 750;
       }
 
-      .nav-links a {
-        color: #343842;
+      .nav-links a,
+      .nav-links button {
+        color: #313846;
         text-decoration: none;
-        transition: color 0.2s ease;
       }
 
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links button:hover {
         color: var(--red);
       }
 
-      .nav-cta,
-      .poster-trigger,
-      .button {
+      .button,
+      .poster-trigger {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.55rem;
+        gap: 0.5rem;
         min-height: 2.75rem;
-        border-radius: 8px;
-        border: 0;
-        text-decoration: none;
+        padding: 0 1.1rem;
+        border-radius: var(--radius);
+        border: 1px solid transparent;
         font: inherit;
         font-weight: 850;
         line-height: 1;
+        text-decoration: none;
         cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       }
 
-      .nav-cta,
-      .poster-trigger {
-        padding: 0 1rem;
-      }
-
-      .nav-cta {
-        background: var(--green);
-        color: white;
-        box-shadow: 0 12px 28px rgba(19, 182, 83, 0.24);
-      }
-
-      .poster-trigger {
-        background: white;
-        color: var(--ink);
-        border: 1px solid var(--line);
-      }
-
-      .button {
-        padding: 0 1.2rem;
-      }
-
-      .nav-cta:hover,
-      .poster-trigger:hover,
-      .button:hover {
+      .button:hover,
+      .poster-trigger:hover {
         transform: translateY(-2px);
       }
 
       .button.primary {
-        background: var(--red);
-        color: white;
-        box-shadow: 0 16px 34px rgba(244, 61, 47, 0.24);
+        background: var(--green);
+        color: var(--white);
+        box-shadow: 0 15px 32px rgba(19, 182, 83, 0.26);
       }
 
-      .button.secondary {
-        background: white;
+      .button.dark {
+        background: var(--navy);
+        color: var(--white);
+        box-shadow: 0 15px 32px rgba(16, 40, 64, 0.22);
+      }
+
+      .button.light,
+      .poster-trigger {
+        background: var(--white);
         color: var(--ink);
-        border: 1px solid var(--line);
+        border-color: var(--line);
       }
 
       main {
         overflow: hidden;
-        padding-top: 6rem;
-      }
-
-      .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.85rem;
-        align-items: center;
-      }
-
-      .poster-action {
-        margin-top: 1.25rem;
       }
 
       section {
         padding: 5rem 1rem;
+      }
+
+      .wrap {
+        width: min(1180px, 100%);
+        margin: 0 auto;
+      }
+
+      .hero {
+        min-height: 92svh;
+        display: flex;
+        align-items: center;
+        padding-top: 7.8rem;
+        padding-bottom: 3.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        max-width: 860px;
+        gap: 2rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        gap: 0.5rem;
+        margin: 0 0 1rem;
+        padding: 0.45rem 0.7rem;
+        border: 1px solid rgba(15, 118, 110, 0.22);
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.08);
+        color: var(--teal);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-bottom: 1.1rem;
+        font-size: clamp(2.8rem, 7vw, 5.8rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 690px;
+        margin-bottom: 1.5rem;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.75;
+      }
+
+      .hero-actions,
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        align-items: center;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+        max-width: 720px;
+        margin-top: 2rem;
+      }
+
+      .metric {
+        padding: 1rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 0.2rem;
+        color: var(--navy);
+        font-size: 1.55rem;
+        line-height: 1;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      .availability {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        width: min(100%, 460px);
+        margin-top: 1.6rem;
+        gap: 0.85rem;
+        align-items: center;
+        padding: 1rem;
+        border-radius: var(--radius);
+        background: var(--white);
+        border: 1px solid var(--line);
+        box-shadow: 0 16px 42px rgba(16, 40, 64, 0.12);
+      }
+
+      .pulse {
+        width: 0.78rem;
+        height: 0.78rem;
+        border-radius: 999px;
+        background: var(--green);
+        box-shadow: 0 0 0 8px rgba(19, 182, 83, 0.12);
+      }
+
+      .availability strong {
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+
+      .availability span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .section-title {
+        display: grid;
+        gap: 0.8rem;
+        max-width: 720px;
+        margin-bottom: 2rem;
+      }
+
+      .section-title.center {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        margin-bottom: 0;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-title p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .services-grid,
+      .feature-grid,
+      .process-grid,
+      .faq-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .service-card,
+      .feature-card,
+      .faq-card,
+      .contact-panel {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: 0 18px 52px rgba(16, 40, 64, 0.07);
+      }
+
+      .service-card {
+        min-height: 21rem;
+        display: grid;
+        align-content: space-between;
+        gap: 2rem;
+        padding: 1.25rem;
+      }
+
+      .icon-box {
+        display: grid;
+        place-items: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: var(--radius);
+        background: var(--mist);
+        color: var(--blue);
+        font-weight: 900;
+      }
+
+      .service-card h3,
+      .feature-card h3,
+      .faq-card h3,
+      .process-card h3,
+      .contact-panel h3 {
+        margin-bottom: 0.55rem;
+        font-size: 1.2rem;
+      }
+
+      .service-card p,
+      .feature-card p,
+      .faq-card p,
+      .process-card p,
+      .contact-panel p {
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.68;
+      }
+
+      .service-list {
+        display: grid;
+        gap: 0.45rem;
+        margin: 1rem 0 0;
+        padding: 0;
+        list-style: none;
+        color: #343b48;
+        font-size: 0.94rem;
+        line-height: 1.45;
+      }
+
+      .service-list li::before {
+        content: "\2713";
+        margin-right: 0.45rem;
+        color: var(--green);
+        font-weight: 900;
+      }
+
+      .split {
+        background: var(--white);
+      }
+
+      .split-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: start;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-card,
+      .faq-card {
+        padding: 1.2rem;
+      }
+
+      .feature-card strong {
+        display: inline-grid;
+        place-items: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        margin-bottom: 0.9rem;
+        border-radius: var(--radius);
+        background: rgba(244, 61, 47, 0.1);
+        color: var(--red);
+      }
+
+      .highlight {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .highlight .section-title p,
+      .highlight .process-card p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .process-card {
+        padding: 1.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .step-number {
+        display: inline-grid;
+        place-items: center;
+        width: 2.45rem;
+        height: 2.45rem;
+        margin-bottom: 1rem;
+        border-radius: var(--radius);
+        background: var(--gold);
+        color: var(--ink);
+        font-weight: 950;
+      }
+
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact {
+        padding-bottom: 4rem;
+        background: linear-gradient(180deg, var(--paper), #edf6f5);
+      }
+
+      .contact-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1.5rem;
+        align-items: center;
+        padding: clamp(1.25rem, 3vw, 2rem);
+      }
+
+      .contact-methods {
+        display: grid;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        color: var(--muted);
+      }
+
+      .contact-methods a {
+        width: fit-content;
+        color: var(--ink);
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0;
+        color: var(--muted);
+        font-size: 0.92rem;
       }
 
       .popup {
@@ -183,7 +506,7 @@
         display: grid;
         place-items: center;
         padding: 1rem;
-        background: rgba(17, 19, 24, 0.72);
+        background: rgba(21, 24, 33, 0.74);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.22s ease;
@@ -201,6 +524,10 @@
         gap: 0.85rem;
       }
 
+      .popup-dialog.wide {
+        width: min(94vw, 620px);
+      }
+
       .popup-close {
         position: absolute;
         top: -0.8rem;
@@ -209,240 +536,56 @@
         height: 2.5rem;
         border: 0;
         border-radius: 999px;
-        background: white;
+        background: var(--white);
         color: var(--ink);
         font-size: 1.45rem;
-        font-weight: 800;
+        font-weight: 900;
         line-height: 1;
         cursor: pointer;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
       }
 
       .popup img {
+        display: block;
         width: 100%;
         max-height: calc(100svh - 8rem);
-        display: block;
         object-fit: contain;
-        border-radius: 8px;
-        background: white;
+        border-radius: var(--radius);
+        background: var(--white);
         box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+      }
+
+      .popup-link {
+        display: block;
+        line-height: 0;
       }
 
       .popup .button {
         width: 100%;
       }
 
-      .wrap {
-        width: min(1180px, 100%);
-        margin: 0 auto;
-      }
-
-      .section-title {
-        display: grid;
-        gap: 0.9rem;
-        max-width: 680px;
-        margin-bottom: 2rem;
-      }
-
-      .section-title.center {
-        margin-inline: auto;
-        text-align: center;
-      }
-
-      .section-title h2 {
-        font-size: clamp(2rem, 4vw, 3.2rem);
-        line-height: 1;
-        margin: 0;
-        letter-spacing: 0;
-      }
-
-      .section-title p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.75;
-        font-size: 1rem;
-      }
-
-      .services-grid,
-      .process-grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .service-card,
-      .process-card,
-      .contact-panel {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: white;
-        box-shadow: 0 18px 50px rgba(17, 19, 24, 0.06);
-      }
-
-      .service-card {
-        min-height: 18rem;
-        display: grid;
-        align-content: space-between;
-        gap: 1.5rem;
-        padding: 1.3rem;
-      }
-
-      .icon-box {
-        display: grid;
-        place-items: center;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 8px;
-        background: var(--soft);
-        color: var(--red);
-        font-size: 1.35rem;
-        font-weight: 900;
-      }
-
-      .service-card h3,
-      .process-card h3,
-      .contact-panel h3 {
-        margin: 0 0 0.65rem;
-        font-size: 1.25rem;
-      }
-
-      .service-card p,
-      .process-card p,
-      .contact-panel p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .highlight {
-        background: var(--ink);
-        color: white;
-      }
-
-      .highlight .section-title p,
-      .highlight .process-card p {
-        color: rgba(255, 255, 255, 0.72);
-      }
-
-      .process-card {
-        padding: 1.3rem;
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.14);
-      }
-
-      .step-number {
-        display: inline-grid;
-        place-items: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-        background: var(--gold);
-        color: var(--ink);
-        font-weight: 900;
-      }
-
-      .detail-list {
-        display: grid;
-        gap: 1rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .detail-list li {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0.8rem;
-        align-items: start;
-        padding: 1rem;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: white;
-      }
-
-      .check {
-        display: grid;
-        place-items: center;
-        width: 1.65rem;
-        height: 1.65rem;
-        border-radius: 999px;
-        background: rgba(19, 182, 83, 0.12);
-        color: var(--green);
-        font-weight: 900;
-      }
-
-      .detail-list strong {
-        display: block;
-        margin-bottom: 0.25rem;
-      }
-
-      .detail-list span {
-        color: var(--muted);
-        line-height: 1.55;
-      }
-
-      .contact {
-        background: linear-gradient(180deg, var(--soft), var(--paper));
-      }
-
-      .contact-panel {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 1.5rem;
-        align-items: center;
-        padding: clamp(1.25rem, 3vw, 2rem);
-      }
-
-      .contact-methods {
-        display: grid;
-        gap: 0.5rem;
-        margin-top: 1rem;
-        color: var(--muted);
-      }
-
-      .contact-methods a {
-        width: fit-content;
-        text-decoration: none;
-        font-weight: 800;
-        color: var(--ink);
-      }
-
-      footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        width: min(1180px, calc(100% - 2rem));
-        margin: 0 auto;
-        padding: 2rem 0;
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      @media (max-width: 900px) {
-        header {
-          width: calc(100% - 24px);
-          top: 12px;
-        }
-
-        .nav-links a:not(.nav-cta) {
+      @media (max-width: 980px) {
+        .nav-links a:not(.button),
+        .poster-trigger {
           display: none;
         }
 
-        .services-grid,
-        .process-grid,
+        .split-grid,
         .contact-panel {
           grid-template-columns: 1fr;
         }
 
-        .contact-panel {
-          align-items: start;
+        .services-grid,
+        .process-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 680px) {
         header {
-          padding: 0.65rem;
+          width: calc(100% - 20px);
+          top: 10px;
+          padding: 0.62rem;
         }
 
         .brand {
@@ -455,27 +598,46 @@
           height: 1.9rem;
         }
 
-        .nav-cta {
-          min-height: 2.4rem;
+        .button {
+          min-height: 2.55rem;
           padding: 0 0.8rem;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
         }
 
+        .hero {
+          min-height: auto;
+          padding-top: 6.8rem;
+        }
+
+        h1 {
+          font-size: clamp(2.45rem, 14vw, 4rem);
+        }
+
+        section {
+          padding: 4rem 1rem;
+        }
+
+        .metrics,
+        .services-grid,
+        .feature-grid,
+        .process-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          min-height: 0;
+        }
+
+        .hero-actions,
         .contact-actions {
           align-items: stretch;
           flex-direction: column;
         }
 
-        .button {
+        .hero-actions .button,
+        .contact-actions .button {
           width: 100%;
-        }
-
-        .poster-trigger {
-          display: none;
-        }
-
-        section {
-          padding: 4rem 1rem;
         }
 
         footer {
@@ -483,15 +645,16 @@
         }
       }
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18195524273"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18195524273');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18195524273"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-18195524273");
+    </script>
   </head>
   <body>
     <header>
@@ -501,57 +664,151 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
         <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-        <button class="poster-trigger" type="button" data-open-popup>Poster</button>
-        <a class="nav-cta" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">WhatsApp</a>
+        <a href="#faq">FAQ</a>
+        <button class="poster-trigger" type="button" data-open-popup="posterPopup">Poster</button>
+        <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">WhatsApp</a>
       </nav>
     </header>
 
-    <!-- <div class="popup is-open" id="posterPopup" role="dialog" aria-modal="true" aria-label="Jannat Studio poster">
+    <div class="popup" id="posterPopup" role="dialog" aria-modal="true" aria-label="Jannat Studio poster">
       <div class="popup-dialog">
         <button class="popup-close" type="button" aria-label="Close poster">&times;</button>
-        <img src="jannat.png" alt="Jannat 24 hour WhatsApp service poster" />
+        <img src="jannat.png" alt="Jannat Studio 24 hour WhatsApp service poster" />
         <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">Chat on WhatsApp</a>
       </div>
-    </div> -->
+    </div>
+
+    <div class="popup is-open" id="coinPopup" role="dialog" aria-modal="true" aria-label="Jannat Studio WhatsApp offer">
+      <div class="popup-dialog wide">
+        <button class="popup-close" type="button" aria-label="Close offer">&times;</button>
+        <a class="popup-link" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more.." aria-label="Chat with Jannat Studio on WhatsApp">
+          <img src="coin.png" alt="Jannat Studio offer" />
+        </a>
+      </div>
+    </div>
 
     <main id="home">
+      <section class="hero" aria-label="Jannat Studio introduction">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">24 hour WhatsApp service everyday</p>
+            <h1>Fast customer help, clear communication, professional support.</h1>
+            <p class="hero-copy">
+              Jannat Studio helps people connect with your service quickly through a clean website, direct WhatsApp
+              contact, and clear information that works beautifully on mobile.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">Start WhatsApp Chat</a>
+              <a class="button dark" href="tel:+918252607706">Call +91 82526 07706</a>
+              <button class="button light" type="button" data-open-popup="posterPopup">View Service Poster</button>
+            </div>
+            <div class="metrics" aria-label="Service highlights">
+              <div class="metric">
+                <strong>24/7</strong>
+                <span>Always available for customer messages</span>
+              </div>
+              <div class="metric">
+                <strong>1 tap</strong>
+                <span>Direct WhatsApp contact from any device</span>
+              </div>
+              <div class="metric">
+                <strong>Mobile</strong>
+                <span>Designed first for phone visitors</span>
+              </div>
+            </div>
+            <div class="availability">
+              <span class="pulse" aria-hidden="true"></span>
+              <span>
+                <strong>Open for messages now</strong>
+                <span>Tap WhatsApp and share what help you need.</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="services">
         <div class="wrap">
           <div class="section-title center">
-            <h2>Ready When Customers Need You</h2>
+            <h2>Services Made Simple for Every Customer</h2>
             <p>
-              Jannat Studio brings your service, support, and customer communication into one clean online presence.
+              A professional service page should answer the first questions quickly: what you offer, how customers can
+              reach you, and why they should trust the response.
             </p>
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <div>
-                <div class="icon-box">01</div>
-              </div>
+              <div class="icon-box">01</div>
               <div>
                 <h3>WhatsApp Support</h3>
-                <p>Make it easy for visitors to start a direct conversation, ask questions, and get quick help.</p>
+                <p>Give visitors a direct route to ask questions, request details, and receive fast guidance.</p>
+                <ul class="service-list">
+                  <li>One-tap chat button</li>
+                  <li>Pre-filled inquiry message</li>
+                  <li>Visible contact options</li>
+                </ul>
               </div>
             </article>
             <article class="service-card">
-              <div>
-                <div class="icon-box">02</div>
-              </div>
+              <div class="icon-box">02</div>
               <div>
                 <h3>Customer Guidance</h3>
-                <p>Present your offer clearly so people understand what you do and how to reach you.</p>
+                <p>Explain your service in plain language so people know the next step without confusion.</p>
+                <ul class="service-list">
+                  <li>Clear service sections</li>
+                  <li>Helpful FAQ answers</li>
+                  <li>Simple response flow</li>
+                </ul>
               </div>
             </article>
             <article class="service-card">
-              <div>
-                <div class="icon-box">03</div>
-              </div>
+              <div class="icon-box">03</div>
               <div>
                 <h3>Digital Presence</h3>
-                <p>A polished service page that works across phones, tablets, and desktops with focused calls to action.</p>
+                <p>Use a polished, responsive website that feels trustworthy on phones, tablets, and desktops.</p>
+                <ul class="service-list">
+                  <li>Professional layout</li>
+                  <li>Readable mobile design</li>
+                  <li>Strong brand presentation</li>
+                </ul>
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="split" id="why">
+        <div class="wrap split-grid">
+          <div class="section-title">
+            <h2>Built Around Trust, Speed, and Clarity</h2>
+            <p>
+              The site keeps the bold Jannat identity but makes the experience more credible, easier to scan, and more
+              useful for visitors who are ready to contact you.
+            </p>
+            <a class="button dark" href="#contact">Contact Details</a>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <strong>A</strong>
+              <h3>Professional First Impression</h3>
+              <p>Clean spacing, strong headings, and a focused visual hierarchy help your page feel more reliable.</p>
+            </article>
+            <article class="feature-card">
+              <strong>B</strong>
+              <h3>Better Mobile Experience</h3>
+              <p>Buttons, text, and image areas are arranged so customers can act quickly on small screens.</p>
+            </article>
+            <article class="feature-card">
+              <strong>C</strong>
+              <h3>More Helpful Information</h3>
+              <p>Service details, process steps, and FAQ content reduce hesitation before a customer sends a message.</p>
+            </article>
+            <article class="feature-card">
+              <strong>D</strong>
+              <h3>Clear Conversion Path</h3>
+              <p>WhatsApp remains visible across the page so interested visitors always know how to begin.</p>
             </article>
           </div>
         </div>
@@ -561,55 +818,56 @@
         <div class="wrap">
           <div class="section-title">
             <h2>Simple Service Flow</h2>
-            <p>Visitors do not need to search around. The page guides them from interest to action in a few seconds.</p>
+            <p>Every section guides visitors from interest to action without making them search for contact details.</p>
           </div>
           <div class="process-grid">
             <article class="process-card">
               <span class="step-number">1</span>
-              <h3>Open the page</h3>
-              <p>Your brand, service promise, and availability are visible immediately.</p>
+              <h3>Visit Page</h3>
+              <p>The service promise and 24 hour availability are visible immediately.</p>
             </article>
             <article class="process-card">
               <span class="step-number">2</span>
-              <h3>Choose contact</h3>
-              <p>Customers can tap WhatsApp or call without hunting for details.</p>
+              <h3>Read Details</h3>
+              <p>Visitors can understand the support, contact options, and basic process.</p>
             </article>
             <article class="process-card">
               <span class="step-number">3</span>
-              <h3>Start support</h3>
-              <p>The conversation begins quickly with a clear path for the next step.</p>
+              <h3>Start Chat</h3>
+              <p>A WhatsApp message opens with one tap and a ready inquiry line.</p>
+            </article>
+            <article class="process-card">
+              <span class="step-number">4</span>
+              <h3>Get Help</h3>
+              <p>The conversation continues with direct guidance and next steps.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="studio">
+      <section id="faq">
         <div class="wrap">
-          <div>
-            <div class="section-title">
-              <h2>Built Around Trust, Speed, and Clarity</h2>
-              <p>
-                The design keeps Jannat's bold visual identity while making the page easier to read, easier to contact,
-                and more convincing for mobile visitors.
-              </p>
-            </div>
-            <ul class="detail-list">
-              <li>
-                <span class="check">&#10003;</span>
-                <span><strong>Mobile-first layout</strong>Buttons, text, and sections stay readable on small screens.</span>
-              </li>
-              <li>
-                <span class="check">&#10003;</span>
-                <span><strong>Clear contact options</strong>WhatsApp, phone, and email are visible where customers expect them.</span>
-              </li>
-              <li>
-                <span class="check">&#10003;</span>
-                <span><strong>Strong brand moment</strong>The original Jannat artwork becomes the main visual signal on the page.</span>
-              </li>
-            </ul>
-            <div class="contact-actions poster-action">
-              <button class="button primary" type="button" data-open-popup>View poster</button>
-            </div>
+          <div class="section-title center">
+            <h2>Questions Customers Often Ask</h2>
+            <p>Short answers make the website feel more complete and help visitors decide faster.</p>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-card">
+              <h3>How do I contact Jannat Studio?</h3>
+              <p>Use the WhatsApp button on the page or call the listed phone number for direct support.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Is the service available every day?</h3>
+              <p>Yes. The page is positioned around 24 hour WhatsApp support and everyday availability.</p>
+            </article>
+            <article class="faq-card">
+              <h3>What should I send first?</h3>
+              <p>Share your name, requirement, and any important details. The WhatsApp link already includes a starter message.</p>
+            </article>
+            <article class="faq-card">
+              <h3>Can I view the original poster?</h3>
+              <p>Yes. Use the poster button to open the full Jannat Studio service poster without leaving the page.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -620,18 +878,18 @@
             <div>
               <h3>Give Us One Chance</h3>
               <p>
-                Send a message any time. Jannat Studio is positioned for fast replies, clear help, and simple customer
-                communication.
+                Send a message any time. Jannat Studio is ready for fast replies, clear guidance, and simple customer
+                communication through WhatsApp.
               </p>
               <div class="contact-methods">
-                <a href="mailto:hello@jannatstudio.com">hello@jannatstudio.com</a>
-                <a href="tel:+1234567890">+123 456 7890</a>
-                <span>Online service, available every day</span>
+                <a href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">WhatsApp: +91 82526 07706</a>
+                <a href="tel:+918252607706">Call: +91 82526 07706</a>
+                <span>Online service available every day</span>
               </div>
             </div>
             <div class="contact-actions">
-              <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">WhatsApp</a>
-              <a class="button secondary" href="mailto:hello@jannatstudio.com">Email</a>
+              <a class="button primary" href="https://wa.me/918252607706?text=I%20want%20to%20know%20more..">WhatsApp Now</a>
+              <button class="button light" type="button" data-open-popup="posterPopup">Open Poster</button>
             </div>
           </div>
         </div>
@@ -642,29 +900,46 @@
       <span>&copy; 2026 Jannat Studio</span>
       <span>24 hour WhatsApp service every day.</span>
     </footer>
+
     <script>
-      const popup = document.getElementById("posterPopup");
+      const popups = document.querySelectorAll(".popup");
       const openButtons = document.querySelectorAll("[data-open-popup]");
-      const closeButton = popup.querySelector(".popup-close");
 
-      function openPopup() {
-        popup.classList.add("is-open");
-      }
-
-      function closePopup() {
-        popup.classList.remove("is-open");
-      }
-
-      openButtons.forEach((button) => button.addEventListener("click", openPopup));
-      closeButton.addEventListener("click", closePopup);
-      popup.addEventListener("click", (event) => {
-        if (event.target === popup) {
-          closePopup();
+      function openPopup(popup) {
+        if (popup) {
+          popup.classList.add("is-open");
         }
+      }
+
+      function closePopup(popup) {
+        if (popup) {
+          popup.classList.remove("is-open");
+        }
+      }
+
+      openButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          openPopup(document.getElementById(button.dataset.openPopup));
+        });
       });
+
+      popups.forEach((popup) => {
+        const closeButton = popup.querySelector(".popup-close");
+
+        if (closeButton) {
+          closeButton.addEventListener("click", () => closePopup(popup));
+        }
+
+        popup.addEventListener("click", (event) => {
+          if (event.target === popup) {
+            closePopup(popup);
+          }
+        });
+      });
+
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-          closePopup();
+          popups.forEach(closePopup);
         }
       });
     </script>
